@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<title>404 - Not Found</title>	
+	
+	<!-- 
+		In this sample the html page has the error code included in the title of the page. Eg.  "404 - Not Found"
+		I set the error page title to always starts with an integar.  
+		I test for an integar and conditionally record the error in GA if TRUE. 
+	--> 
+
+	<!-- Google Analytics -->
+	<script type="text/javascript">
+	//<![CDATA[
+	    var _gaq = _gaq || [];
+	
+	    // Return numbers from title, only if starts with number, convert to integar
+	    var _pageStatusCode = parseInt(document.title, 10);
+	    // Add your GA account code 
+	    _gaq.push(['_setAccount', 'UA-xxxxxx-1']);
+	
+	    // Check if _pageStatusCode has a value, 
+	    // if TRUE override the default GA path setting and add current page URL + error code value.
+	    if (!isNaN(+_pageStatusCode)) {
+	        // If you want the URL querystrings as well, use .. location.pathname + location.queryparam + '#' + _pageStatusCode
+	        _gaq.push(['_trackPageview', location.pathname + '#' + _pageStatusCode]);
+	    } else {
+	        _gaq.push(['_trackPageview']);
+	    }
+	    (function () {
+	        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	    })();
+	//]]>
+	</script>
+	</head>
+	<body>
+		<h1>Page can't be found</h1>
+		<p>..and your Google Analytics know's about it</p>		
+	</body>
+</html>
