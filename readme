@@ -1,0 +1,17 @@
+Google Analytics Error Tracking
+--------------------------------
+
+For the code in the index.html to work you'll need to firstly set up a Google Analytics (GA) account and have it recording data. This will help with troubleshooting any errors.
+
+Include the error code snippet, remeber add the _setAccount code supplied when you registered GA. You cgit an use the javascript method of capturing the page status code the I put in the page tittle, or return the statusCode serverside and test against the error codes you'd like to capture. 
+
+When setting the _trackPageview variable between the URL and status code a "#" has been included. This is to make it easier to filter for errors.
+
+Once you start to successfully record errors log into GA and navigate to the "Real-time BETA" page. 
+	* Select the "Content" view
+	* Enter "#404" (or which ever status code your searching) in the filter field and submit.
+	
+This will display just the occurances of "#404" and give you live data. Can test by forcing a 404 error the site. Within seconds this will appear in the filtered real time view.
+
+Can also extend this further by adding specific GA events each time something happens. Could be a build number or something to associate errors to releases over time.   
+
