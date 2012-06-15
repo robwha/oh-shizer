@@ -9,7 +9,7 @@ When setting the _trackPageview variable between the URL and status code a "#" h
 
 Once you start to successfully record errors log into GA and navigate to the "Real-time BETA" page. 
 	* Select the "Content" view
-	* Enter "#404" (or which ever status code your searching) in the filter field and submit.
+	* Enter "#404" (or which ever status code you're searching) in the filter field and submit.
 	
 This will display just the occurances of "#404" and give you live data. Can test by forcing a 404 error the site. Within seconds this will appear in the filtered real time view.
 
